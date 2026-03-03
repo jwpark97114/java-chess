@@ -2,7 +2,7 @@ package com.Chess;
 
 import java.util.Scanner;
 
-public class gameEngine {
+public class GameEngine {
     public static void main(String[] args) {
         Scanner userScanner = new Scanner(System.in);
         String input ="";

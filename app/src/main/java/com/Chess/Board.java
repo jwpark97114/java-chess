@@ -33,89 +33,88 @@ public class Board {
             switch (i){
                 case 0 ->{
                     Piece tmp;
-                    String row ="";
                     String color = "white";
-
+                    StringBuilder row = new StringBuilder();
                     tmp = Piece.createWhiteRook();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteKnight();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteBishop();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteQueen();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteKing();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteBishop();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteKnight();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
+                    row.append(tmp.getRepresentation());
                     tmp = Piece.createWhiteRook();
                     this.add(tmp,color);
-                    row += tmp.getRepresentation();
-                    row = appendNewLine(row);
-                    this.gameBoard[i] = row;
+                    row.append(tmp.getRepresentation());
+                    row.append(appendNewLine(""));
+                    this.gameBoard[i] = row.toString();
                 }
                 case 1 -> {
-                    String row ="";
+                    StringBuilder row = new StringBuilder();
                     String color = "white";
                     for(int j =0; j < this.gameBoard.length; j++){
                         Piece tmp = Piece.createWhitePawn();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                     }
-                    row = appendNewLine(row);
-                    this.gameBoard[i] = row;
+                    row.append(appendNewLine(""));
+                    this.gameBoard[i] = row.toString();
                 }
                 case 6 -> {
-                    String row ="";
+                    StringBuilder row = new StringBuilder();
                     String color ="black";
                     for(int j =0; j < this.gameBoard.length; j++){
                         Piece tmp = Piece.createBlackPawn();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                     }
-                    row = appendNewLine(row);
-                    this.gameBoard[i] = row;
+                    row.append(appendNewLine(""));
+                    this.gameBoard[i] = row.toString();
                 }
                 case 7 ->{
                     {
                         Piece tmp;
-                        String row ="";
+                        StringBuilder row = new StringBuilder();
                         String color = "black";
                         tmp = Piece.createBlackRook();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackKnight();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackBishop();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackQueen();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackKing();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackBishop();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackKnight();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
+                        row.append(tmp.getRepresentation());
                         tmp = Piece.createBlackRook();
                         this.add(tmp,color);
-                        row += tmp.getRepresentation();
-                        row = appendNewLine(row);
-                        this.gameBoard[i] = row;
+                        row.append(tmp.getRepresentation());
+                        row.append(appendNewLine(""));
+                        this.gameBoard[i] = row.toString();
                     }
                 }
                 default -> {

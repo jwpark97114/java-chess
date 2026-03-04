@@ -66,6 +66,7 @@ public class Board {
 
     public String print(){
         StringBuilder sb = new StringBuilder();
+
         for(int i =0; i < this.gameBoard.length; i++){
             for(char c : this.gameBoard[i]){
                 sb.append(c);

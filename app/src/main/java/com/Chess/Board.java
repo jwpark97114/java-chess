@@ -4,16 +4,19 @@ import static com.utils.StringUtils.appendNewLine;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Board {
 
-    private final List<Piece> whitePieces = new ArrayList<>();
-    private final List<Piece> blackPieces = new ArrayList<>();
-    private final List<Piece> piecesOnBoard = new ArrayList<>();
+    private List<Piece> whitePieces;
+    private List<Piece> blackPieces;
+    private List<Piece> piecesOnBoard;
 
     private final List<List<Piece>> gameBoard = new ArrayList<>();
-    private int pieceCount = 0;
+
+
+
 
     public Board(){
         for(int i = 0 ; i < 8; i++){
@@ -21,7 +24,6 @@ public class Board {
             this.gameBoard.add(tmp);
         }
     }
-
 
     public void initialize(){
         for(int i=0; i <8; i++){
@@ -66,21 +68,9 @@ public class Board {
 
             }
 
-
         }
     }
 
-    public int countPiece(Piece.Color color, Piece.Type type){
-        int count = 0;
-        for(List<Piece> rank : this.gameBoard){
-            for(Piece p : rank){
-                if( (p.getColor() == color) && (p.getType() == type)){
-                    count++;
-                }
-            }
-        }
-        return count;
-    }
 
     private int[] convertPosToIndices(String position){
         char colChar = position.charAt(0);
@@ -94,17 +84,20 @@ public class Board {
         return this.gameBoard.get(indices[0]).get(indices[1]);
     }
 
+    public Piece findPiece(int i, int j){
+        return this.gameBoard.get(i).get(j);
+    }
+
     public void initializeEmpty(){
 
         for(int i =0; i < 8; i++){
-            List<Piece> tmp = this.gameBoard.get(i);
+            this.gameBoard.set(i, new ArrayList<>());
             for(int j = 0; j < 8; j ++){
-                tmp.set(j, Piece.createBlank());
+                this.gameBoard.get(i).set(j, Piece.createBlank());
             }
         }
 
     }
-
 
     public void move(String position, Piece piece){
         int[] coords = convertPosToIndices(position);
@@ -119,46 +112,11 @@ public class Board {
         this.gameBoard.get(currentIndices[0]).set(currentIndices[1],Piece.createBlank());
     }
 
-    public int pieceCount(){
-        return this.pieceCount;
-    }
-
-    public double calculatePoint(Piece.Color color){
-        double scoreSum = 0.0;
-
-        for(int j =0 ; j < 8; j++){
-            boolean hasPawn = false;
-            for(int i =0; i < 8; i++){
-                Piece tmpPiece = this.gameBoard.get(i).get(j);
-                if(tmpPiece.getColor() == color){
-                    double score = tmpPiece.getType().getScore();
-                    if(tmpPiece.getType()== Piece.Type.PAWN){
-                        if(hasPawn){
-                            score = score / 2;
-                        }
-                        hasPawn = true;
-                    }
-                    scoreSum += score;
-                }
-            }
-        }
-
-        return scoreSum;
-    }
-
-    public String showBoard(){
-        StringBuilder sb = new StringBuilder();
-        for(int i =0; i < 8; i++){
-            for(int j=0; j < 8; j++){
-                sb.append(this.gameBoard.get(i).get(j).getRepresentation());
-            }
-            sb.append(appendNewLine(""));
-        }
-        return sb.toString();
-    }
-
-
     private void loadLists(){
+        this.whitePieces = new ArrayList<>();
+        this.blackPieces = new ArrayList<>();
+        this.piecesOnBoard = new ArrayList<>();
+
         for(int i =0; i < 8; i++){
             for(int j =0; j <8; j ++){
                 Piece tmp = this.gameBoard.get(i).get(j);
@@ -175,8 +133,9 @@ public class Board {
 
     public void sortPieces(){
         loadLists();
-        Collections.sort(this.blackPieces, (a,b) -> Double.compare(a.getType().getScore(), b.getType().getScore()));
-        Collections.sort(this.whitePieces, (a,b) -> Double.compare(a.getType().getScore(), b.getType().getScore()));
-        Collections.sort(this.piecesOnBoard, (a,b) -> Double.compare(a.getType().getScore(), b.getType().getScore()));
+        Comparator<Piece> scoreCompare = Comparator.comparingDouble((a) -> a.getType().getScore());
+        Collections.sort(this.blackPieces,scoreCompare);
+        Collections.sort(this.whitePieces,scoreCompare);
+        Collections.sort(this.piecesOnBoard,scoreCompare);
     }
 }

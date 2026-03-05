@@ -25,6 +25,7 @@ public class Board {
 
     public void initialize(){
         for(int i=0; i <8; i++){
+            this.gameBoard.set(i, new ArrayList<>());
             List<Piece> tmp = this.gameBoard.get(i);
             switch(i){
                 case 7 -> {
@@ -98,7 +99,7 @@ public class Board {
         for(int i =0; i < 8; i++){
             List<Piece> tmp = this.gameBoard.get(i);
             for(int j = 0; j < 8; j ++){
-                tmp.add(Piece.createBlank());
+                tmp.set(j, Piece.createBlank());
             }
         }
 

@@ -46,7 +46,7 @@ public class Piece {
     }
 
     private final char representationCharacter;
-    private final Color color; // 0 - black , 1 - white
+    private final Color color;
     private final Type type;
 
     private Piece(Color color, Type type){

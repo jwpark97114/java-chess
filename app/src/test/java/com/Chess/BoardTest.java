@@ -40,13 +40,14 @@ public class BoardTest {
 
     @Test
     public void move() throws Exception {
-        board.initializeEmpty();
+        board.initialize();
 
-        String position = "b5";
-        Piece piece = Piece.createBlackRook();
-        board.move(position, piece);
-        assertThat(board.findPiece(position)).isEqualTo(piece);
-        System.out.println(board.showBoard());
+        String sourcePosition = "b2";
+        String targetPosition = "b3";
+        board.move(sourcePosition, targetPosition);
+        assertThat(board.findPiece(sourcePosition)).isEqualTo(Piece.createBlank());
+        assertThat(board.findPiece(targetPosition)).isEqualTo(Piece.createWhitePawn());
+
     }
 
     @Test

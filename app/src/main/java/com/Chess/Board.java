@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Board {
 
-    private List<Piece> whitePieces = new ArrayList<>();
-    private List<Piece> blackPieces = new ArrayList<>();
-    private List<Piece> piecesOnBoard = new ArrayList<>();
+    private final List<Piece> whitePieces = new ArrayList<>();
+    private final List<Piece> blackPieces = new ArrayList<>();
+    private final List<Piece> piecesOnBoard = new ArrayList<>();
 
     private final List<List<Piece>> gameBoard = new ArrayList<>();
     private int pieceCount = 0;
@@ -104,9 +104,18 @@ public class Board {
 
     }
 
+
     public void move(String position, Piece piece){
         int[] coords = convertPosToIndices(position);
         this.gameBoard.get(coords[0]).set(coords[1],piece);
+    }
+
+    public void move(String currentPosition, String targetPosition){
+        int[] currentIndices = convertPosToIndices(currentPosition);
+        int[] targetIndices = convertPosToIndices(targetPosition);
+        Piece targetPiece = findPiece(currentPosition);
+        this.gameBoard.get(targetIndices[0]).set(targetIndices[1],targetPiece);
+        this.gameBoard.get(currentIndices[0]).set(currentIndices[1],Piece.createBlank());
     }
 
     public int pieceCount(){

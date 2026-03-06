@@ -14,6 +14,7 @@ public class Rook extends Piece{
             super.representationCharacter = 'r';
         }
         super.score = 5.0;
+        super.type = Type.ROOK;
     }
 
     @Override

@@ -14,6 +14,7 @@ public class Bishop extends Piece{
             super.representationCharacter = 'b';
         }
         super.score = 3.0;
+        super.type = Type.BISHOP;
     }
 
 

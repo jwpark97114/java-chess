@@ -14,6 +14,7 @@ public class Queen extends Piece{
             super.representationCharacter = 'q';
         }
         super.score = 9.0;
+        super.type = Type.QUEEN;
     }
 
 

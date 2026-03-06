@@ -33,11 +33,12 @@ java {
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'com.example.App'
+    // Define the main class for the application.s
+    mainClass = 'com.Chess.GameEngine'
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+run{ standardInput = System.in }

@@ -14,6 +14,7 @@ public class King extends Piece{
             super.representationCharacter = 'k';
         }
         super.score = 0.0;
+        super.type = Type.KING;
     }
 
     @Override

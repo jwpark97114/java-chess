@@ -14,6 +14,7 @@ public class Knight extends Piece{
             super.representationCharacter = 'n';
         }
         super.score = 2.5;
+        super.type = Type.KNIGHT;
     }
 
     @Override

@@ -9,6 +9,7 @@ public class BlankPiece extends Piece {
         super.representationCharacter ='.';
         super.color = Color.NOCOLOR;
         super.score = 0.0;
+        super.type = Type.NO_PIECE;
     }
 
     @Override

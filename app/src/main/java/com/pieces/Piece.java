@@ -6,45 +6,10 @@ import java.util.Objects;
 
 public abstract class Piece {
 
-//    public enum Type{
-//        PAWN('p',1.0),
-//        ROOK('r', 5.0),
-//        KNIGHT('n',2.5),
-//        BISHOP('b', 3.0),
-//        QUEEN('q', 9.0),
-//        KING('k', 0),
-//        NO_PIECE('.', 0);
-//
-//        private final char representation;
-//        private final double score;
-//
-//        Type(char rep, double score){
-//            this.representation = rep;
-//            this.score = score;
-//        }
-//
-//        public char getWhiteRepresentation(){
-//            return this.representation;
-//        }
-//
-//        public char getBlackRepresentation(){
-//            return Character.toUpperCase(this.representation);
-//        }
-//
-//        public double getScore(){
-//            return this.score;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return name().toLowerCase();
-//        }
-//    }
-
     protected char representationCharacter;
     protected Color color;
     protected double score;
-
+    protected Type type;
 //    private Piece(Color color, double score){
 //        this.representationCharacter = '.';
 //        this.color = color;
@@ -60,8 +25,8 @@ public abstract class Piece {
         return this.representationCharacter;
     }
 
-    public String getType(){
-        return getClass().getName().toUpperCase();
+    public Type getType(){
+        return this.type;
     }
 
     public boolean isBlack(){

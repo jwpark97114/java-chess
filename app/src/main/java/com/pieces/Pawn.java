@@ -14,6 +14,7 @@ public class Pawn extends Piece{
             super.representationCharacter = 'p';
         }
         super.score = 1.0;
+        super.type = Type.PAWN;
     }
 
     @Override

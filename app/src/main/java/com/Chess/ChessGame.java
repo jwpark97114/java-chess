@@ -9,7 +9,6 @@ import com.pieces.Type;
 
 public class ChessGame {
 
-    private int pieceCount = 0;
     private Board chessBoard;
     private boolean isWhiteTurn = true;
 

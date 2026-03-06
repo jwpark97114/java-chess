@@ -1,6 +1,5 @@
 package com.Chess;
 import com.pieces.*;
-import static com.utils.StringUtils.appendNewLine;
 import static com.utils.StringUtils.convertPosToIndices;
 import java.util.ArrayList;
 import java.util.Collections;

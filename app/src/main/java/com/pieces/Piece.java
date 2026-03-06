@@ -10,11 +10,6 @@ public abstract class Piece {
     protected Color color;
     protected double score;
     protected Type type;
-//    private Piece(Color color, double score){
-//        this.representationCharacter = '.';
-//        this.color = color;
-//        this.score = score;
-//    }
 
     public Color getColor(){
         return this.color;
@@ -41,15 +36,6 @@ public abstract class Piece {
         return this.score;
     }
 
-//    public boolean verifyMovePosition(int[] curPos, int[] tagetPos){
-//        int[][] moves = possibleMoves(curPos);
-//        for(int[] move : moves){
-//            if((move[0] == tagetPos[0])&&(move[1]==tagetPos[1])){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     protected boolean withinBounds(int x, int y){
             return ((x <8) && ( x >= 0))&&((y<8) &&(y>=0));

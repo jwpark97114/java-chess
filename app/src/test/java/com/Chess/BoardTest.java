@@ -1,5 +1,6 @@
 package com.Chess;
 
+import com.pieces.Color;
 import com.pieces.Piece;
 import org.junit.jupiter.api.*;
 import static org.assertj.core.api.Assertions.*;
@@ -67,8 +68,8 @@ public class BoardTest {
         addPiece("e1", Piece.createWhiteRook());
         addPiece("f1", Piece.createWhiteKing());
 
-        assertThat(game.calculatePoint(Piece.Color.BLACK)).isEqualTo(15.0);
-        assertThat(game.calculatePoint(Piece.Color.WHITE)).isEqualTo(7.0);
+        assertThat(game.calculatePoint(Color.BLACK)).isEqualTo(15.0);
+        assertThat(game.calculatePoint(Color.WHITE)).isEqualTo(7.0);
     }
 
     private void addPiece(String position, Piece piece) {

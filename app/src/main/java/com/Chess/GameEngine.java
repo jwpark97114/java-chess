@@ -16,7 +16,7 @@ public class GameEngine {
         newGame.setChessBoard(chessBoard);
         chessBoard.initialize();
 
-        commands.put("move", (arrString) -> chessBoard.move(arrString[0], arrString[1]));
+        commands.put("move", (arrString) -> newGame.move(arrString[0], arrString[1]));
         commands.put("init", (arrString)->{
             chessBoard.initialize();
         });
